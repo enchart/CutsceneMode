@@ -1,18 +1,26 @@
-﻿using BepInEx;
+﻿using System.Reflection;
+using BepInEx;
 using BepInEx.Logging;
 using BepInEx.Unity.IL2CPP;
+using HarmonyLib;
 
 namespace CutsceneMode;
 
-[BepInPlugin(MyPluginInfo.PLUGIN_GUID, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
+[BepInPlugin(Guid, MyPluginInfo.PLUGIN_NAME, MyPluginInfo.PLUGIN_VERSION)]
 public class Plugin : BasePlugin
 {
-    internal static new ManualLogSource Log;
+    public const string Guid = "com.enchart.cutscenemode";
+    
+    internal new static ManualLogSource Log;
 
     public override void Load()
     {
-        // Plugin startup logic
         Log = base.Log;
-        Log.LogInfo($"Plugin {MyPluginInfo.PLUGIN_GUID} is loaded!");
+        Log.LogInfo($"Plugin {Guid} is loaded!");
+
+        var harmony = new Harmony(Guid);
+        harmony.PatchAll(Assembly.GetExecutingAssembly());
     }
 }
+
+

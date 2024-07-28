@@ -1,0 +1,5 @@
+﻿<Project>
+    <PropertyGroup>
+        <GamePath>your\path\to\game\folder\Project Arrhythmia</GamePath>
+    </PropertyGroup>
+</Project>

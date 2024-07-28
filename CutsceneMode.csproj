@@ -3,20 +3,40 @@
   <PropertyGroup>
     <TargetFramework>net6.0</TargetFramework>
     <AssemblyName>CutsceneMode</AssemblyName>
-    <Product>My first plugin</Product>
+    <Product>Cutscene Mode</Product>
     <Version>1.0.0</Version>
     <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
-    <LangVersion>latest</LangVersion>
+    <LangVersion>10</LangVersion>
     <RestoreAdditionalProjectSources>
       https://api.nuget.org/v3/index.json;
       https://nuget.bepinex.dev/v3/index.json;
       https://nuget.samboy.dev/v3/index.json
     </RestoreAdditionalProjectSources>
     <RootNamespace>CutsceneMode</RootNamespace>
+    <Title>Cutscene Mode</Title>
+    <Authors>enchart</Authors>
   </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="BepInEx.Unity.IL2CPP" Version="6.0.0-be.*" IncludeAssets="compile" />
     <PackageReference Include="BepInEx.PluginInfoProps" Version="2.*" />
   </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="lib\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Reference Include="Assembly-CSharp">
+      <HintPath>lib\Assembly-CSharp-publicized.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  
+  <Target Name="Copy" AfterTargets="Build" Condition="'$(GamePath)'!='' And '$(Configuration)'=='Debug'">
+    <PropertyGroup>
+      <PluginsPath>$(GamePath)\BepInEx\plugins</PluginsPath>
+    </PropertyGroup>
+    <Message Text="Copying build result to $(PluginsPath)" Importance="high" />
+    <Copy SourceFiles="$(OutputPath)$(AssemblyName).dll" DestinationFolder="$(PluginsPath)" />
+  </Target>
 </Project>

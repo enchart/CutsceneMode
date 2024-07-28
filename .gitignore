@@ -1,4 +1,7 @@
-﻿### VisualStudioCode template
+﻿lib/
+Directory.Build.props
+
+### VisualStudioCode template
 .vscode/*
 !.vscode/settings.json
 !.vscode/tasks.json
