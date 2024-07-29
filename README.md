@@ -3,7 +3,7 @@ A small Project Arrhythmia mod that hides the players and the player GUI.
 
 ## Install
 1. Install BepInEx 6 (TODO)
-2. Open the [latest release](https://github.com/enchart/CutsceneMode/releases/latest) page and download `CutsceneMode.dll`
+2. Download the [latest mod DLL file](https://github.com/enchart/CutsceneMode/releases/latest/download/CutsceneMode.dll)
 3. Put the downloaded file in the `Project Arrhythmia/BepInEx/plugins` folder
 
 ## Build
