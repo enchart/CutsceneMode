@@ -1,5 +1,4 @@
-﻿lib/
-Directory.Build.props
+﻿Directory.Build.props
 
 ### VisualStudioCode template
 .vscode/*
